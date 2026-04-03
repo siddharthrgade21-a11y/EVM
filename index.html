@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EVM X ULTRA</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- 🔐 LOGIN PAGE -->
+<div id="loginBox" class="login-container">
+    <h1>🗳️ EVM X</h1>
+    <h3>Secure Login</h3>
+
+    <input type="password" id="adminPass" placeholder="Enter Admin Password">
+    <button onclick="login()">Login</button>
+</div>
+
+
+<!-- 🚀 MAIN APP (HIDDEN INITIALLY) -->
+<div id="app" class="hidden">
+
+    <!-- 🔝 NAVBAR -->
+    <div class="navbar">
+        <h2>EVM Dashboard</h2>
+
+        <div class="nav-buttons">
+            <button onclick="switchTab('vote')">🗳️ Vote</button>
+            <button onclick="switchTab('analytics')">📊 Analytics</button>
+            <button onclick="switchTab('admin')">⚙️ Admin</button>
+            <button onclick="toggleTheme()">🌙</button>
+            <button onclick="logout()" class="logout">Logout</button>
+        </div>
+    </div>
+
+
+    <!-- 🗳️ VOTING TAB -->
+    <div id="vote" class="tab active">
+        <h2>Cast Your Vote</h2>
+
+        <input id="voterId" placeholder="Enter Voter ID">
+        <input id="search" placeholder="Search Candidate..." onkeyup="searchCandidate()">
+
+        <div id="candidateList"></div>
+    </div>
+
+
+    <!-- 📊 ANALYTICS TAB -->
+    <div id="analytics" class="tab">
+        <h2>Live Results</h2>
+
+        <div id="results"></div>
+        <canvas id="chart" width="300" height="300"></canvas>
+    </div>
+
+
+    <!-- ⚙️ ADMIN TAB -->
+    <div id="admin" class="tab">
+        <h2>Admin Panel</h2>
+
+        <input id="candidateName" placeholder="Candidate Name">
+        <button onclick="addCandidate()">Add Candidate</button>
+
+        <button onclick="reset()" class="danger">Reset Election</button>
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
